@@ -1,15 +1,15 @@
-let username = "Fasi Ur Rehman"
+// let username = "Fasi Ur Rehman"
 
-console.log(username);
+// console.log(username);
 
 
-const userId = 1232
+// const userId = 1232
 
-console.log(userId);
+// console.log(userId);
 
-username = "ali"
+// username = "ali"
 
-console.log(username);
+// console.log(username);
 
 // 
 
