@@ -154,8 +154,19 @@
 
   </div>
 
+<h1 class="my_heading">this is a test</h1>
+
+<button onclick="changeText()">Click me</button>
+
 
   <script>
+
+
+
+function changeText() {
+    document.querySelector(".my_heading").textContent = "Text changed!";
+}
+
 
     // Your OpenWeatherMap API Key
     const API_KEY = "YOUR_API_KEY";
