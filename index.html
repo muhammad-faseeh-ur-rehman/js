@@ -1,296 +1,233 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Weather App</title>
+    <title>Weather App</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    body {
-      font-family: Arial, sans-serif;
-      min-height: 100vh;
+      body {
+        font-family: Arial, sans-serif;
+        min-height: 100vh;
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-      background: linear-gradient(135deg, #4facfe, #00f2fe);
-    }
+        background: linear-gradient(135deg, #4facfe, #00f2fe);
+      }
 
-    .weather-app {
-      width: 400px;
-      padding: 30px;
+      .weather-app {
+        width: 400px;
+        padding: 30px;
 
-      background: white;
-      border-radius: 20px;
+        background: white;
+        border-radius: 20px;
 
-      text-align: center;
+        text-align: center;
 
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
 
-    h1 {
-      margin-bottom: 25px;
-    }
+      h1 {
+        margin-bottom: 25px;
+      }
 
-    .search-box {
-      display: flex;
-      gap: 10px;
-    }
+      .search-box {
+        display: flex;
+        gap: 10px;
+      }
 
-    .search-box input {
-      flex: 1;
-      padding: 12px;
+      .search-box input {
+        flex: 1;
+        padding: 12px;
 
-      border: 1px solid #ccc;
-      border-radius: 8px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
 
-      outline: none;
-      font-size: 16px;
-    }
+        outline: none;
+        font-size: 16px;
+      }
 
-    .search-box button {
-      padding: 12px 18px;
+      .search-box button {
+        padding: 12px 18px;
 
-      border: none;
-      border-radius: 8px;
+        border: none;
+        border-radius: 8px;
 
-      background: #007bff;
-      color: white;
+        background: #007bff;
+        color: white;
 
-      cursor: pointer;
-      font-size: 16px;
-    }
+        cursor: pointer;
+        font-size: 16px;
+      }
 
-    .search-box button:hover {
-      background: #0056b3;
-    }
+      .search-box button:hover {
+        background: #0056b3;
+      }
 
-    #weatherResult {
-      margin-top: 30px;
-    }
+      #weatherResult {
+        margin-top: 30px;
+      }
 
-    #weatherIcon {
-      width: 100px;
-    }
+      #weatherIcon {
+        width: 100px;
+      }
 
-    #temperature {
-      font-size: 45px;
-      margin: 10px 0;
-    }
+      #temperature {
+        font-size: 45px;
+        margin: 10px 0;
+      }
 
-    #description {
-      text-transform: capitalize;
-      color: #555;
-      margin-bottom: 20px;
-    }
+      #description {
+        text-transform: capitalize;
+        color: #555;
+        margin-bottom: 20px;
+      }
 
-    #weatherResult p {
-      margin: 8px 0;
-      font-size: 17px;
-    }
+      #weatherResult p {
+        margin: 8px 0;
+        font-size: 17px;
+      }
 
-    #error {
-      color: red;
-      margin-top: 15px;
-    }
-  </style>
-</head>
+      #error {
+        color: red;
+        margin-top: 15px;
+      }
+    </style>
+  </head>
 
-<body>
+  <body>
+    <div class="weather-app">
+      <h1>🌤️ Weather App</h1>
 
-  <div class="weather-app">
+      <div class="search-box">
+        <input type="text" id="cityInput" placeholder="Enter city name" />
 
-    <h1>🌤️ Weather App</h1>
+        <button onclick="getWeather()">Search</button>
+      </div>
 
-    <div class="search-box">
+      <p id="error"></p>
 
-      <input
-        type="text"
-        id="cityInput"
-        placeholder="Enter city name"
-      >
+      <div id="weatherResult">
+        <h2 id="city">Search for a city</h2>
 
-      <button onclick="getWeather()">
-        Search
-      </button>
+        <img id="weatherIcon" src="" alt="" />
 
+        <h3 id="temperature">--°C</h3>
+
+        <p id="description">--</p>
+
+        <p>
+          💧 Humidity:
+          <span id="humidity">--</span>%
+        </p>
+
+        <p>
+          💨 Wind Speed:
+          <span id="wind">--</span> m/s
+        </p>
+      </div>
     </div>
 
-    <p id="error"></p>
+    <h1 class="my_heading">this is a test</h1>
 
-    <div id="weatherResult">
+    <button onclick="changeText()">Click me</button>
 
-      <h2 id="city">Search for a city</h2>
-
-      <img
-        id="weatherIcon"
-        src=""
-        alt=""
-      >
-
-      <h3 id="temperature">--°C</h3>
-
-      <p id="description">--</p>
-
-      <p>
-        💧 Humidity:
-        <span id="humidity">--</span>%
-      </p>
-
-      <p>
-        💨 Wind Speed:
-        <span id="wind">--</span> m/s
-      </p>
-
-    </div>
-
-  </div>
-
-<h1 class="my_heading">this is a test</h1>
-
-<button onclick="changeText()">Click me</button>
-
-
-  <script>
-
-
-
-function changeText() {
-    document.querySelector(".my_heading").textContent = "Text changed!";
-}
-
-
-    // Your OpenWeatherMap API Key
-    const API_KEY = "YOUR_API_KEY";
-
-
-    // Weather Function
-    async function getWeather() {
-
-      // Get city name from input
-      const city = document.getElementById("cityInput").value.trim();
-
-      // Get error element
-      const error = document.getElementById("error");
-
-      // Clear previous error
-      error.textContent = "";
-
-
-      // Check empty input
-      if (city === "") {
-
-        error.textContent = "Please enter a city name.";
-
-        return;
+    <script>
+      function changeText() {
+        document.querySelector(".my_heading").textContent = "Text changed!";
       }
 
+      // Your OpenWeatherMap API Key
+      const API_KEY = "YOUR_API_KEY";
 
-      try {
+      // Weather Function
+      async function getWeather() {
+        // Get city name from input
+        const city = document.getElementById("cityInput").value.trim();
 
-        // API URL
-        const url =
-          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+        // Get error element
+        const error = document.getElementById("error");
 
+        // Clear previous error
+        error.textContent = "";
 
-        // Send request to API
-        const response = await fetch(url);
+        // Check empty input
+        if (city === "") {
+          error.textContent = "Please enter a city name.";
 
-
-        // Check response
-        if (!response.ok) {
-
-          throw new Error("City not found!");
-
-        }
-        // Convert response to JSON
-        const data = await response.json();
-
-
-
-
-        // Get data from API
-        const cityName = data.name;
-
-        const temperature = data.main.temp;
-
-        const humidity = data.main.humidity;
-
-        const windSpeed = data.wind.speed;
-
-        const description =
-          data.weather[0].description;
-
-        const icon =
-          data.weather[0].icon;
-
-
-        // Display city
-        document.getElementById("city").textContent =
-          cityName;
-
-
-        // Display temperature
-        document.getElementById("temperature").textContent =
-          `${temperature}°C`;
-
-
-        // Display description
-        document.getElementById("description").textContent =
-          description;
-
-
-        // Display humidity
-        document.getElementById("humidity").textContent =
-          humidity;
-
-
-        // Display wind speed
-        document.getElementById("wind").textContent =
-          windSpeed;
-
-
-        // Display weather icon
-        document.getElementById("weatherIcon").src =
-          `https://openweathermap.org/img/wn/${icon}@2x.png`;
-
-      }
-
-
-      catch (err) {
-
-        error.textContent =
-          "City not found. Please try again.";
-
-        console.log(err);
-
-      }
-
-    }
-
-
-    // Press Enter to search
-    document
-      .getElementById("cityInput")
-      .addEventListener("keydown", function(event) {
-
-        if (event.key === "Enter") {
-
-          getWeather();
-
+          return;
         }
 
-      });
+        try {
+          // API URL
+          const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
 
-  </script>
+          // Send request to API
+          const response = await fetch(url);
 
-</body>
+          // Check response
+          if (!response.ok) {
+            throw new Error("City not found!");
+          }
+          // Convert response to JSON
+          const data = await response.json();
+
+          // Get data from API
+          const cityName = data.name;
+
+          const temperature = data.main.temp;
+
+          const humidity = data.main.humidity;
+
+          const windSpeed = data.wind.speed;
+
+          const description = data.weather[0].description;
+
+          const icon = data.weather[0].icon;
+
+          // Display city
+          document.getElementById("city").textContent = cityName;
+
+          // Display temperature
+          document.getElementById("temperature").textContent =
+            `${temperature}°C`;
+
+          // Display description
+          document.getElementById("description").textContent = description;
+
+          // Display humidity
+          document.getElementById("humidity").textContent = humidity;
+
+          // Display wind speed
+          document.getElementById("wind").textContent = windSpeed;
+
+          // Display weather icon
+          document.getElementById("weatherIcon").src =
+            `https://openweathermap.org/img/wn/${icon}@2x.png`;
+        } catch (err) {
+          error.textContent = "City not found. Please try again.";
+
+          console.log(err);
+        }
+      }
+
+      // Press Enter to search
+      document
+        .getElementById("cityInput")
+        .addEventListener("keydown", function (event) {
+          if (event.key === "Enter") {
+            getWeather();
+          }
+        });
+    </script>
+  </body>
 </html>
