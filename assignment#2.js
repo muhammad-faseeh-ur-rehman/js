@@ -209,8 +209,6 @@ removeFromCart(103);
 
 mostExpensiveItem();
 let finalTotal = calculateTotal();
-
-console.log("========== FINAL TOTAL ==========");
 console.log("Subtotal:", finalTotal.subtotal);
 console.log("Discount Amount:", finalTotal.discountAmount);
 console.log("Tax:", finalTotal.tax);
