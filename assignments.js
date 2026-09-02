@@ -132,5 +132,4 @@ failedStudents.forEach(student => {
 });
 console.log("failed",failedStudents);
 
-
-// console.log(students);
+console.log(students);
