@@ -130,6 +130,6 @@ let failedStudents = students.filter(student => {
 failedStudents.forEach(student => {
     console.log(student.name);
 });
-console.log("failed",failedStudents);
+console.log("failed",Students who failed);
 
 console.log(students);
