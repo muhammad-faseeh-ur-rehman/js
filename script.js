@@ -18,7 +18,7 @@ console.log(text3.trim());
 let name2 = "Ali";
 console.log(name2.charAt(0));
 
-// array //
+
 
 let fruits = ["Apple", "Banana", "Mango"];
 console.log(fruits.length);
