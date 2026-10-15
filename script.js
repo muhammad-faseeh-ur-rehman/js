@@ -77,7 +77,6 @@ console.log(nums);
 let names = ["Ali", "Ahmed", "Faseeh"];
 console.log(names.join(" - "));
 
-// math //
 console.log(Math.round(4.6));
 console.log(Math.floor(4.9));
 console.log(Math.ceil(4.1));
